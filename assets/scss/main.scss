@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Montserrat:wght@100&family=Open+Sans&family=Oswald&display=swap');
+
+// font variables
+$base-fonts: 'Open Sans', sans-serif;
+$cursive-fonts: 'Lora', serif;
+$slim-fonts: 'Montserrat', sans-serif;
+$thin-fonts: 'Oswald', sans-serif;
+
+// font classes
+.base-fonts { font-family: $base-fonts; }
+.cursive-fonts { font-family: $cursive-fonts; }
+.slim-fonts { font-family: $slim-fonts; }
+.thin-fonts { font-family: $thin-fonts; }
+
+// color variables
+$base-color: #333;
+$pale-brand: #898c6b;
+$brand-color: #2e3022;
+$white-color: #fff;
+$shine-color: orange;
+
+// color classes
+.base-color { color: $base-color; }
+.base-bg { background: $base-color; }
+.pale-brand { color: $pale-brand; }
+.pale-bg { background: $pale-brand; }
+.brand-color { color: $pale-brand; }
+.white-color { color: $white-color; }
+.shine-color { color: $shine-color; }
+
+.btn-brand {
+  color: $pale-brand;
+  background: $brand-color;
+  transition: all .3s ease;
+
+  &:hover {
+    background: darken($brand-color, 15);
+  }
+}
+
+.btn-outline-brand {
+  color: $brand-color;
+  background: transparent;
+  border: 1px solid $brand-color;
+  transition: all .3s ease;
+
+  &:hover {
+    color: $pale-brand;
+    background: $brand-color;
+  }
+}
+
+body {
+  color: $brand-color;
+  background: $white-color;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: $base-fonts;
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+}
+
+.quote {
+  font-size: 1.6rem;
+}
+
+.header {
+  position: relative;
+  border: 2px solid yellow;
+}
+
+.scrolled-nav {
+  top: 0;
+  height: 80px;
+  background: rgba(#000, .9);
+
+  .logo-container {
+    max-width: 200px;
+
+    .logo {
+      width: 100%;
+      max-width: 100px;
+    }
+  }
+
+  .menu-right {
+
+    ul {
+
+      li {
+
+        a {
+          color: $pale-brand;
+          padding: 10px 0;
+          font-size: 1rem;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            height: 100%;
+            width: 30%;
+            border-bottom: 2px solid rgba($shine-color, .5);
+            transition: all .3s ease;
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 30%;
+            height: 100%;
+            width: 0%;
+            border-bottom: 2px solid rgba($white-color, .5);
+            transition: all .3s ease;
+          }
+
+          &.booking {
+            background: $pale-brand;
+            color: $white-color;
+            padding: 10px 12px;
+            text-shadow: none;
+            box-shadow: 0 0 3px #000;
+
+            &:hover {
+              background: orange;
+              text-shadow: none;
+              color: $white-color;
+              text-shadow: 0 1px 3px #333;
+
+              &::before {
+                width: 0;
+                border-bottom: none;
+              }
+              &::after {
+                width: 0;
+                border-bottom: none;
+              }
+            }
+          }
+
+          &:hover {
+            color: $shine-color;
+            text-shadow: 0 1px 0 #000;
+
+            &::before {
+              // width: 100%;
+              border-color: $shine-color;
+            }
+            &::after {
+              width: 70%;
+              border-color: $white-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+nav {
+  position: fixed;
+  top: 15px; left: 0;
+  display: flex;
+  width: 100%;
+  padding: 15px;
+  justify-content: space-between;
+  align-items: center;
+  height: 140px;
+  z-index: 100;
+  transition: all .3s ease;
+
+  .logo-container {
+    max-width: 300px;
+    transition: all .3s ease;
+
+    .logo {
+      width: 100%;
+      max-width: 200px;
+      transition: all .3s ease;
+    }
+  }
+
+  .menu-right {
+    flex-basis: 70%;
+    // transition: all .3s ease;
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      li {
+        text-transform: uppercase;
+
+        a {
+          display: block;
+          padding: 20px 0;
+          color: $white-color;
+          text-decoration: none;
+          font-family: $thin-fonts;
+          font-size: 1.1rem;
+          position: relative;
+          transition: all .3s ease;
+          text-shadow: 0 1px 3px #000;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            height: 100%;
+            width: 30%;
+            border-bottom: 4px solid $white-color;
+            transition: all .3s ease;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 30%;
+            height: 100%;
+            width: 0%;
+            border-bottom: 4px solid $shine-color;
+            transition: all .3s ease;
+          }
+
+          &.booking {
+            background: $brand-color;
+            color: $white-color;
+            padding: 20px 12px;
+            text-shadow: none;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0; left: 0;
+              height: 100%;
+              width: 0%;
+              border-bottom: none;
+              transition: all .3s ease;
+              border-bottom: 4px solid $brand-color;
+            }
+            &::after {
+              content: '';
+              position: absolute;
+              top: 0; left: 30%;
+              height: 100%;
+              width: 70%;
+              border-bottom: none;
+              transition: all .3s ease;
+            }
+
+            &:hover {
+              background: orange;
+              text-shadow: none;
+              color: $white-color;
+              text-shadow: 0 1px 3px #333;
+            }
+          }
+
+          &:hover {
+            color: $shine-color;
+            text-shadow: 0 1px 3px #000;
+
+            &::before {
+              // width: 100%;
+              // border-color: $shine-color;
+            }
+            &::after {
+              width: 70%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.slider {
+  max-height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(#000, .5);
+  }
+}
+
+.main {
+  .welcome {
+    font-size: 1.2rem;
+    padding: 15px;
+  }
+}
