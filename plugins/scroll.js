@@ -10,10 +10,10 @@
     scrollV = window.pageYOffset || document.documentElement.scrollTop;
     if(scrollV > 10) {
       nav.classList.add('scrolled-nav')
-      logo.setAttribute('src', '../../assets/images/logos/transparent-pale.png')
+      // logo.setAttribute('src', '../assets/images/logos/transparent-pale.png')
     } else {
       nav.classList.remove('scrolled-nav')
-      logo.setAttribute('src', '../../assets/images/logos/transparent-brand.png')
+      // logo.setAttribute('src', '../assets/images/logos/transparent-brand.png')
     }
   }
 })();

@@ -19,32 +19,32 @@
       </div>
     </div>
     <div class="row pale-bg">
-      <div class="col-lg-6 py-4 d-flex flex-column align-items-center justify-content-center">
+      <div class="col-md-6 py-4 d-flex flex-column align-items-center justify-content-center">
         <h3 class="thin-fonts mb-4">WHY TRAVEL WITH NATURAL HISTORY SAFARI</h3>
         <p class="text-justify px-4">million wildebeest… each one driven by the same ancient rhythm, fulfilling its instinctive role in the inescapable cycle of life: a frenzied three-week bout of territorial conquests and mating; survival of the fittest as 40km (25 mile) long columns plunge through crocodile-infested waters on the annual exodus north; replenishing the species in a brief population explosion that produces more than 8,000 calves daily before the 1,000 km (600 mile) pilgrimage begins again...</p>
         <button class="btn btn-outline-brand rounded-0 mt-3">Read More</button>
       </div>
-      <div class="col-lg-6 p-0">
+      <div class="col-md-6 p-0">
         <img src="~/assets/images/boni.jpg" class="img-fluid" alt="">
       </div>
     </div>
     <div class="row pale-bg">
-      <div class="col-lg-6 p-0">
+      <div class="col-md-6 p-0">
         <img src="~/assets/images/simba.jpg" class="img-fluid" alt="">
       </div>
-      <div class="col-lg-6 py-4 d-flex flex-column align-items-center justify-content-center">
+      <div class="col-md-6 py-4 d-flex flex-column align-items-center justify-content-center">
         <h3 class="thin-fonts mb-4">WHEN TO DO WHAT IN TANZANIA</h3>
         <p class="text-justify px-4">million wildebeest… each one driven by the same ancient rhythm, fulfilling its instinctive role in the inescapable cycle of life: a frenzied three-week bout of territorial conquests and mating; survival of the fittest as 40km (25 mile) long columns plunge through crocodile-infested waters on the annual exodus north; replenishing the species in a brief population explosion that produces more than 8,000 calves daily before the 1,000 km (600 mile) pilgrimage begins again...</p>
         <button class="btn btn-outline-brand rounded-0 mt-3">Read More</button>
       </div>
     </div>
     <div class="row pale-bg">
-      <div class="col-lg-6 py-4 d-flex flex-column align-items-center justify-content-center">
+      <div class="col-md-6 py-4 d-flex flex-column align-items-center justify-content-center">
         <h3 class="thin-fonts mb-4">TANZANIA SAFARI ADVENTURES</h3>
         <p class="text-justify px-4">million wildebeest… each one driven by the same ancient rhythm, fulfilling its instinctive role in the inescapable cycle of life: a frenzied three-week bout of territorial conquests and mating; survival of the fittest as 40km (25 mile) long columns plunge through crocodile-infested waters on the annual exodus north; replenishing the species in a brief population explosion that produces more than 8,000 calves daily before the 1,000 km (600 mile) pilgrimage begins again...</p>
         <button class="btn btn-outline-brand rounded-0 mt-3">Read More</button>
       </div>
-      <div class="col-lg-6 p-0">
+      <div class="col-md-6 p-0">
         <img src="~/assets/images/ndege.jpg" class="img-fluid" alt="">
       </div>
     </div>
