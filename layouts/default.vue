@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <UIHeader />
-    <Nuxt />
+    <Nuxt keep-live />
     <UIFooter />
   </div>
 </template>

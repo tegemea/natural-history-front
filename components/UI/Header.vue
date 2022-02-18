@@ -9,8 +9,8 @@
         </div>
         <div class="menu-right">
           <ul class="list-unstyled">
-            <li><a href="#">Home</a></li>
-            <li><a href="we-are-natural">We Are Natural</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/we-are-natural">We Are Natural</a></li>
             <li><a href="/what-to-do-when">What to do When</a></li>
             <li><a href="/natural-adventures">Natural Adventures</a></li>
             <li><a href="#">Why Travel with us</a></li>
