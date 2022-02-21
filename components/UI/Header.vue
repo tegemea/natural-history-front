@@ -4,18 +4,18 @@
       <nav id="nav">
         <div class="logo-container">
           <a href="#" title="Natural History Safaris">
-            <img src="~/assets/images/logos/transparent-brand.png" id="logo" class="logo" alt="Logo">
+            <img src="~/assets/images/logos/transparent-pale.png" id="logo" class="logo" alt="Logo">
           </a>
         </div>
         <div class="menu-right">
           <ul class="list-unstyled">
-            <li><a href="/">Home</a></li>
-            <li><a href="/we-are-natural">We Are Natural</a></li>
-            <li><a href="/what-to-do-when">What to do When</a></li>
-            <li><a href="/natural-adventures">Natural Adventures</a></li>
-            <li><a href="#">Why Travel with us</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#" class="booking mt-3">Safari Booking</a></li>
+            <li><NuxtLink to="/">Home</NuxtLink></li>
+            <li><NuxtLink to="/we-are-natural">We Are Natural</NuxtLink></li>
+            <li><NuxtLink to="/what-to-do-when">What to do When</NuxtLink></li>
+            <li><NuxtLink to="/natural-adventures">Natural Adventures</NuxtLink></li>
+            <li><NuxtLink to="#">Why Travel with us</NuxtLink></li>
+            <li><NuxtLink to="#">Blog</NuxtLink></li>
+            <li><NuxtLink to="#" class="booking mt-3">Safari Booking</NuxtLink></li>
           </ul>
         </div>
       </nav>
@@ -24,9 +24,5 @@
 </template>
 
 <style lang="scss" scoped>
-$color: red;
-
-.row {
-  color: $color
-}
+// 
 </style>

@@ -58,5 +58,9 @@ export default {
         implementation: require('sass'),
       },
     },
+  },
+  loading: {
+    color: 'orange',
+    height: '4px'
   }
 }

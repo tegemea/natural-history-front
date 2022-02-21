@@ -28,6 +28,11 @@ $shine-color: orange;
 .white-color { color: $white-color; }
 .shine-color { color: $shine-color; }
 
+// link hover states
+a.brand-color:hover {
+  color: $base-color;
+}
+
 .btn-brand {
   color: $pale-brand;
   background: $brand-color;
@@ -91,7 +96,7 @@ body {
       li {
 
         a {
-          color: $pale-brand;
+          color: lighten($color: $pale-brand, $amount: 15);
           padding: 10px 0;
           font-size: 1rem;
 
@@ -228,6 +233,7 @@ nav {
             color: $white-color;
             padding: 20px 12px;
             text-shadow: none;
+            border: 1px solid $pale-brand;
 
             &::before {
               content: '';
@@ -286,13 +292,38 @@ nav {
     left: 0; top: 0;
     height: 100%;
     width: 100%;
-    background: rgba(#000, .5);
+    background: linear-gradient(rgba(black, 70), rgba(black, .3), transparent, transparent);
+  }
+
+  .title {
+    position: absolute;
+    left: 50%; top: 75%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 3;
+    font-family: $cursive-fonts;
+    font-size: 44px;
+    color: white;
+    text-shadow: 0 1px 3px #000;
+    padding: 15px 30px;
+    border: 1px solid rgba($color: white, $alpha: .7);
+    white-space: nowrap;
+    // background: rgba($color: $brand-color, $alpha: .1);
   }
 }
 
 .main {
   .welcome {
     font-size: 1.2rem;
+    padding: 15px;
+  }
+}
+
+footer {
+  margin-top: 30px;
+  background: $pale-brand;
+
+  .container {
     padding: 15px;
   }
 }
