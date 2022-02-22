@@ -3,9 +3,9 @@
     <header class="row">
       <nav id="nav">
         <div class="logo-container">
-          <a href="#" title="Natural History Safaris">
+          <NuxtLink to="/" title="Natural History Safaris">
             <img src="~/assets/images/logos/transparent-pale.png" id="logo" class="logo" alt="Logo">
-          </a>
+          </NuxtLink>
         </div>
         <div class="menu-right">
           <ul class="list-unstyled">
