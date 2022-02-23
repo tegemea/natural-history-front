@@ -10,9 +10,21 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-4">asdasd</div>
-            <div class="col-md-4">asdads</div>
-            <div class="col-md-4">asdasd</div>
+            <div class="col-md-6">
+              <address>
+                <h5 class="thin-fonts mb-2">Natural History Safari</h5>
+                P.O. Box 12044 <br>
+                Arusha, Tanzania <br>
+                Phone: <a href="tel:+255753306061" class="brand-color">+255753306061</a> <br>
+                Email: <a href="mailto:info@naturalhistorysafari.com" class="brand-color">info(at)naturalhistorysafari.com</a>
+              </address>
+            </div>
+            <div class="col-md-6">
+              <h5 class="thin-fonts mb-2">U.S.A. Office</h5>
+              Phone: <a href="tel+1 (760) 272-1913" class="brand-color">+1 (760) 272-1913</a> <br>
+              Email: <a href="mailto:mchedester@livingdesert.org" class="brand-color">mchedester@livingdesert.org</a>
+            </div>
+            <!-- <div class="col-md-4">asdasd</div> -->
           </div>
         </div>
       </div>
