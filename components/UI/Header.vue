@@ -15,7 +15,7 @@
             <li><NuxtLink to="/natural-adventures">Natural Adventures</NuxtLink></li>
             <li><NuxtLink to="#">Why Travel with us</NuxtLink></li>
             <li><NuxtLink to="#">Blog</NuxtLink></li>
-            <li><NuxtLink to="#" class="booking mt-3">Safari Booking</NuxtLink></li>
+            <li><NuxtLink to="/safari-bookings" class="booking mt-3">Safari Booking</NuxtLink></li>
           </ul>
         </div>
       </nav>

@@ -16,10 +16,18 @@
               </NuxtLink>
             </div>
             <div class="card-body">
-              <NuxtLink :to="`/what-to-do-when/${whatToDoWhen.slug}`" 
-                class="text-decoration-none brand-color thin-fonts">
-                {{ whatToDoWhen.name }}
-              </NuxtLink>
+              <h5 class="mb-3">
+                <NuxtLink :to="`/what-to-do-when/${whatToDoWhen.slug}`" 
+                  class="brand-color thin-fonts">
+                  {{ whatToDoWhen.name }}
+                </NuxtLink>
+              </h5>
+              <div 
+                v-html="whatToDoWhen.description.length > 100 
+                ? whatToDoWhen.description.substr(0, 100) + '...'
+                : whatToDoWhen.description" 
+                class="text-justify">
+              </div>
             </div>
           </div>
         </div>
@@ -35,7 +43,7 @@ export default {
   async asyncData({ app, store }) {
     if(!store.state.whatToDoWhen.whatToDoWhens.length) {
       const { data } = await app.$axios.get(`${store.state.settings.apiURL}/what-to-do-when`)
-      store.commit('whatToDoWhen/SET_WHAT_TO_DO_WHENS', data);
+      if(data.length) store.commit('whatToDoWhen/SET_WHAT_TO_DO_WHENS', data);
       return { whatToDoWhens: data }
     } else {
       return { whatToDoWhens: store.state.whatToDoWhen.whatToDoWhens }
