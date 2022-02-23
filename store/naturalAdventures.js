@@ -13,3 +13,11 @@ export const mutations = {
     state.naturalAdventures = naturalAdventures
   }
 }
+
+export const actions = {
+  getNaturalAdventures: async ({ commit, state }) => { 
+    const { data } = await app.$axios.get(`${state.settings.apiURL}/natural-adventures`)
+    commit('SET_NATURAL_ADVENTURES', data)
+    console.log(data)
+  }
+}

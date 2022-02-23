@@ -19,6 +19,13 @@
             </div>
             <div class="col-md-3">
               <h4 class="thin-fonts">Natural Adventures</h4>
+              <NuxtLink v-for="footerN in naturalAdventures.slice(0,8)"
+                :to="`/natural-adventures/${footerN.slug}`"
+                class="d-block text-black-50"
+                :key="footerN.id"
+              >
+                {{ footerN.name }}
+              </NuxtLink>
             </div>
             <div class="col-md-3">
               <h4 class="thin-fonts">Get in Touch</h4>
@@ -32,9 +39,26 @@
 
 <script>
 export default {
-  computed: {
-    whatToDoWhens() {
-      return this.$store.state.whatToDoWhen.whatToDoWhens
+  data() {
+    return {
+      whatToDoWhens: [],
+      naturalAdventures: []
+    }
+  },
+  async fetch() {
+    const storeHasWhatToDoWhens = this.$store.state.whatToDoWhen.whatToDoWhens.length > 0;
+    const storeHasNaturalAdventures = this.$store.state.naturalAdventures.naturalAdventures.length > 0;
+
+    if(!storeHasWhatToDoWhens) {
+      this.whatToDoWhens = await this.$axios.$get(`${this.$store.state.settings.apiURL}/what-to-do-when`);
+    } else {
+      this.whatToDoWhens = this.$store.state.whatToDoWhen.whatToDoWhens
+    }
+    
+    if(!storeHasNaturalAdventures) {
+      this.naturalAdventures = await this.$axios.$get(`${this.$store.state.settings.apiURL}/natural-adventures`);
+    } else {
+      this.naturalAdventures = this.$store.state.naturalAdventures.naturalAdventures
     }
   }
 }

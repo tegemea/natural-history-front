@@ -14,3 +14,11 @@ export const mutations = {
     state.whatToDoWhens = whatToDoWhens
   }
 }
+
+export const actions = {
+  getWhatToDoWhens: async ({ commit, state }) => { 
+    const { data } = await app.$axios.get(`${state.settings.apiURL}/what-to-do-when`)
+    commit('SET_WHAT_TO_DO_WHENS', data)
+    console.log(data)
+  }
+}
