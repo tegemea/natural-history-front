@@ -1,6 +1,6 @@
 export const state = () => ({
-  apiURL: 'http://localhost:8000/api/v1',
-  baseURL: 'http://localhost:8000'
+  apiURL: 'https://naturalhistorysafari.com/core/api/v1',
+  baseURL: 'https://naturalhistorysafari.com'
 })
 
 export const getters = {
