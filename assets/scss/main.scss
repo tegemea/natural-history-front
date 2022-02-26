@@ -1,4 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Montserrat:wght@100&family=Open+Sans&family=Oswald&display=swap');
+@font-face {
+  font-family: 'Open Sans';
+  src:  url('~assets/fonts/opensans.woff') format('woff'), url('~assets/fonts/opensans.woff2') format('woff2');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src:  url('~assets/fonts/lora-italic.woff') format('woff'), url('~assets/fonts/lora-italic.woff2') format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src:  url('~assets/fonts/montserrat.woff') format('woff'), url('~assets/fonts/montserrat.woff2') format('woff2');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src:  url('~assets/fonts/oswald.woff') format('woff'), url('~assets/fonts/oswald.woff2') format('woff2');
+  font-weight: 400;
+}
 
 // font variables
 $base-fonts: 'Open Sans', sans-serif;
@@ -157,6 +179,72 @@ body {
             }
           }
         }
+        .dropdown {
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          top: 50px; left: 0;
+          padding: 20px 0 0 0;
+
+          ul.dropdown-content {
+            display: flex;
+            flex-direction: column;
+            background-color: $brand-color;
+            border-top: none;
+            list-style: none;
+            padding: 12px 0 0 0;
+  
+            li {
+              text-transform: capitalize;
+              position: relative;
+              width: 100%;
+      
+              a {
+                display: block;
+                padding: 6px 15px;
+                color: $white-color;
+                text-decoration: none;
+                font-family: $thin-fonts;
+                font-size: 1.1rem;
+                position: relative;
+                transition: all .3s ease;
+                white-space: nowrap;
+               
+  
+                &::before {
+                  content: '';
+                  position: absolute;
+                  top: 0; left: 0;
+                  height: 100%;
+                  width: 100%;
+                  border-bottom: none;
+                }
+      
+                &::after {
+                  content: '';
+                  position: absolute;
+                  top: 0; left: 30%;
+                  height: 100%;
+                  width: 100%;
+                  border-bottom: none;
+                }
+      
+                &:hover {
+                  color: $shine-color;
+                  text-shadow: 0 1px 3px #000;
+      
+                  &::before {
+                    // width: 100%;
+                    // border-color: $shine-color;
+                  }
+                  &::after {
+                    width: 70%;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -164,7 +252,7 @@ body {
 
 nav {
   position: fixed;
-  top: 15px; left: 0;
+  top: 0; left: 0;
   display: flex;
   width: 100%;
   padding: 15px;
@@ -196,6 +284,7 @@ nav {
 
       li {
         text-transform: uppercase;
+        position: relative;
 
         a {
           display: block;
@@ -273,6 +362,73 @@ nav {
             }
             &::after {
               width: 70%;
+            }
+          }
+        }
+        .dropdown {
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          top: 65px; left: 0;
+          padding: 30px 0 0 0;
+
+          ul.dropdown-content {
+            display: flex;
+            flex-direction: column;
+            background-color: rgba($brand-color, .85);
+            border: 1px solid $pale-brand;
+            list-style: none;
+            padding: 12px 0 0 0;
+            transition: all .3s ease;
+  
+            li {
+              text-transform: capitalize;
+              position: relative;
+              width: 100%;
+      
+              a {
+                display: block;
+                padding: 6px 15px;
+                color: $white-color;
+                text-decoration: none;
+                font-family: $thin-fonts;
+                font-size: 1.1rem;
+                position: relative;
+                transition: all .3s ease;
+                white-space: nowrap;
+               
+  
+                &::before {
+                  content: '';
+                  position: absolute;
+                  top: 0; left: 0;
+                  height: 100%;
+                  width: 100%;
+                  border-bottom: none;
+                }
+      
+                &::after {
+                  content: '';
+                  position: absolute;
+                  top: 0; left: 30%;
+                  height: 100%;
+                  width: 100%;
+                  border-bottom: none;
+                }
+      
+                &:hover {
+                  color: $shine-color;
+                  text-shadow: 0 1px 3px #000;
+      
+                  &::before {
+                    // width: 100%;
+                    // border-color: $shine-color;
+                  }
+                  &::after {
+                    width: 70%;
+                  }
+                }
+              }
             }
           }
         }
