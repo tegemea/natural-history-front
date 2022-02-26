@@ -84,23 +84,24 @@ export default {
 
 <style lang="scss" scoped>
 .fade-enter {
-  visibility: hidden;
+  // visibility: hidden;
   opacity: 0;
   // transform: translateY(-7px);
 }
 
 .fade-enter-active {
-  transition: all .3s;
+  transition: all 1s;
+  opacity: 1;
   // visibility: visible;
 }
 
 .fade-leave {
-  // 
+  // opacity: 1;
 }
 
 .fade-leave-active {
-  transition: all .3s;
-  visibility: hidden;
+  transition: all 1s;
+  // visibility: hidden;
   opacity: 0;
   // transform: translateY(-7px);
 }
