@@ -10,7 +10,7 @@
         <div class="menu-right">
           <ul class="list-unstyled">
             <li><NuxtLink to="/">Home</NuxtLink></li>
-            <li><NuxtLink to="/we-are-natural">We Are Natural</NuxtLink></li>
+            <li><NuxtLink to="#">We Are Natural</NuxtLink></li>
             <li><NuxtLink to="/what-to-do-when">What to do When</NuxtLink></li>
             <li><NuxtLink to="/natural-adventures">Natural Adventures</NuxtLink></li>
             <li><NuxtLink to="#">Why Travel with us</NuxtLink></li>

@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'natural-history-front',
+    title: 'Natural History Safaris',
     htmlAttrs: {
       lang: 'en'
     },
