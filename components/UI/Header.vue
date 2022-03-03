@@ -10,10 +10,10 @@
         <div class="menu-right">
           <ul class="list-unstyled">
             <li><NuxtLink to="/">Home</NuxtLink></li>
-            <li><NuxtLink to="#">We Are Natural</NuxtLink></li>
+            <li><NuxtLink to="/we-are-nature-lovers">We Are Nature Lovers</NuxtLink></li>
             <li @mouseenter="mouseEnter($event)" @mouseleave="mouseLeave($event)">
               <NuxtLink to="/what-to-do-when">What to do When</NuxtLink>
-              <transition name="fade">
+              <!-- <transition name="fade"> -->
                 <div class="dropdown">
                   <ul class="dropdown-content">
                     <li v-for="w in whatToDoWhens" :key="w.id">
@@ -21,11 +21,11 @@
                     </li>
                   </ul>
                 </div>
-              </transition>
+              <!-- </transition> -->
             </li>
             <li @mouseenter="mouseEnter($event)" @mouseleave="mouseLeave($event)">
               <NuxtLink to="/natural-adventures">Natural Adventures</NuxtLink>
-              <transition name="fade">
+              <!-- <transition name="fade"> -->
                 <div class="dropdown">
                   <ul class="dropdown-content">
                     <li v-for="n in naturalAdventures" :key="n.id">
@@ -33,9 +33,9 @@
                     </li>
                   </ul>
                 </div>
-              </transition>
+              <!-- </transition> -->
             </li>
-            <li><NuxtLink to="#">Why Travel with us</NuxtLink></li>
+            <li><NuxtLink to="/why-travel-with-us">Why Travel with us</NuxtLink></li>
             <li><NuxtLink to="#">Blog</NuxtLink></li>
             <li><NuxtLink to="/safari-bookings" class="booking mt-3">Safari Booking</NuxtLink></li>
           </ul>
@@ -83,28 +83,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fade-enter {
-  // visibility: hidden;
-  opacity: 0;
-  // transform: translateY(-7px);
-}
+// .fade-enter {
+//   opacity: 0;
+// }
 
-.fade-enter-active {
-  transition: all 1s;
-  opacity: 1;
-  // visibility: visible;
-}
+// .fade-enter-active {
+//   transition: all 3s ease;
+//   opacity: 1;
+// }
 
-.fade-leave {
-  // opacity: 1;
-}
+// .fade-leave {
+//   //
+// }
 
-.fade-leave-active {
-  transition: all 1s;
-  // visibility: hidden;
-  opacity: 0;
-  // transform: translateY(-7px);
-}
+// .fade-leave-active {
+//   transition: all 1s;
+//   opacity: 0;
+// }
 
 .active {
   visibility: visible !important;

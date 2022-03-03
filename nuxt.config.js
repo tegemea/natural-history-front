@@ -60,6 +60,7 @@ export default {
     },
   },
   loading: {
+    continuous: true,
     color: 'orange',
     height: '4px'
   }

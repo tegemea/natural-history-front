@@ -5,7 +5,14 @@
         <div class="container">
           <div class="row">
             <div class="col-md-3">
-              <h4 class="thin-fonts">About us</h4>
+              <h4 class="thin-fonts">Quick Links</h4>
+              <NuxtLink v-for="footerP in pages" 
+                :to="`/${footerP.slug}`"
+                class="d-block text-black-50"
+                :key="footerP.id"
+              >
+                {{ footerP.name }}
+              </NuxtLink>
             </div>
             <div class="col-md-3">
               <h4 class="thin-fonts">What to do When</h4>
@@ -41,13 +48,21 @@
 export default {
   data() {
     return {
+      pages: [],
       whatToDoWhens: [],
       naturalAdventures: []
     }
   },
   async fetch() {
+    const storeHasPages = this.$store.state.pages.pages.length > 0;
     const storeHasWhatToDoWhens = this.$store.state.whatToDoWhen.whatToDoWhens.length > 0;
     const storeHasNaturalAdventures = this.$store.state.naturalAdventures.naturalAdventures.length > 0;
+
+    if(!storeHasPages) {
+      this.pages = await this.$axios.$get(`${this.$store.state.settings.apiURL}/pages`);
+    } else {
+      this.pages = this.$store.state.pages.pages
+    }
 
     if(!storeHasWhatToDoWhens) {
       this.whatToDoWhens = await this.$axios.$get(`${this.$store.state.settings.apiURL}/what-to-do-when`);
