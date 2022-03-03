@@ -36,6 +36,18 @@
             </div>
             <div class="col-md-3">
               <h4 class="thin-fonts">Get in Touch</h4>
+              <address>
+                <h5 class="mb-2">Natural History Safari</h5>
+                <span>P. O. Box 12044 Arusha</span> <br>
+                <span>Tanzania, United Republic</span>
+                <p class="mt-0">
+                  Tel(TZ): <a href="tel:+255753306061" class="text-black-50">+255753306061</a> <br>
+                  Tel(US): <a href="tel:+1 (760) 272-1913" class="text-black-50">+1 (760) 272-1913</a> <br>
+                  <a href="mailto:info@naturalhistorysafari.com" class="text-black-50">info(at)naturalhistorysafari.com</a> <br>
+                  <a href="mailto:mchedester@livingdesert.org" class="text-black-50">mchedester(at)livingdesert.org</a> <br>
+                  <a href="mailto:boni@naturalhistorysafari.com" class="text-black-50">boni(at)naturalhistorysafari.com</a>
+                </p>
+              </address>
             </div>
           </div>
         </div>
