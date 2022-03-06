@@ -13,3 +13,10 @@ export const mutations = {
     state.pages = pages
   }
 }
+
+export const actions = {
+  async getPages({ commit, rootState }) {
+    const { data } = await this.$axios.get(`${rootState.settings.apiURL}/pages`)
+    commit('set', data)
+  }
+}
