@@ -27,6 +27,6 @@ export default {
     baseURL() {
       return this.$store.state.settings.baseURL
     }
-  },
+  }
 }
 </script>

@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <footer class="col-12 p-0">
-        <div class="container">
+        <div class="container max-1600">
           <div class="row">
             <div class="col-md-3">
               <h4 class="thin-fonts">Quick Links</h4>
@@ -43,9 +43,9 @@
                 <p class="mt-0">
                   Tel(TZ): <a href="tel:+255753306061" class="text-black-50">+255753306061</a> <br>
                   Tel(US): <a href="tel:+1 (760) 272-1913" class="text-black-50">+1 (760) 272-1913</a> <br>
-                  <a href="mailto:info@naturalhistorysafari.com" class="text-black-50">info(at)naturalhistorysafari.com</a> <br>
-                  <a href="mailto:mchedester@livingdesert.org" class="text-black-50">mchedester(at)livingdesert.org</a> <br>
-                  <a href="mailto:boni@naturalhistorysafari.com" class="text-black-50">boni(at)naturalhistorysafari.com</a>
+                  <a href="mailto:info@naturalhistorysafari.com" class="text-black-50">info@naturalhistorysafari.com</a> <br>
+                  <a href="mailto:mchedester@livingdesert.org" class="text-black-50">mchedester@livingdesert.org</a> <br>
+                  <a href="mailto:boni@naturalhistorysafari.com" class="text-black-50">boni@naturalhistorysafari.com</a>
                 </p>
               </address>
             </div>

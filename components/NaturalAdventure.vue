@@ -1,24 +1,26 @@
 <template>
   <div>
-    <div class="row">
+    <div class="row text-center">
       <div class="col-12 slider p-0">
         <img :src="`${baseURL}/storage/natural_adventure_photos/${naturalAdventure.photo}`" class="img-fluid" :alt="naturalAdventure.name">
         <h1 class="title">{{ naturalAdventure.name }}</h1>
       </div>
     </div>
-    <div class="container mt-5">
-      <div class="row">
-        <div v-html="naturalAdventure.description" class="col-md-8 text-justify"></div>
-        <div class="col-md-4">
-          <div class="list-group list-group-flush sticky-side">
-            <div class="list-group-item list-group-heading thin-fonts brand-color">OTHER NATURAL ADVENTURES</div>
-            <NuxtLink v-for="a in adventuresWithoutCurrentAdenture" 
-              :to="`/natural-adventures/${a.slug}`" 
-              class="list-group-item list-group-item-action" 
-              :key="a.id"
-            >
-              {{ a.name }}
-            </NuxtLink>
+    <div class="row py-4 bg-white">
+      <div class="container max-1600">
+        <div class="row">
+          <div v-html="naturalAdventure.description" class="col-md-8 text-justify"></div>
+          <div class="col-md-4">
+            <div class="list-group list-group-flush sticky-side">
+              <div class="list-group-item list-group-heading thin-fonts brand-color">OTHER NATURAL ADVENTURES</div>
+              <NuxtLink v-for="a in adventuresWithoutCurrentAdenture" 
+                :to="`/natural-adventures/${a.slug}`" 
+                class="list-group-item list-group-item-action" 
+                :key="a.id"
+              >
+                {{ a.name }}
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </div>
@@ -35,6 +37,18 @@ export default {
     },
     adventuresWithoutCurrentAdenture() {
       return this.naturalAdventures.filter(a => +a.id !== +this.naturalAdventure.id)
+    }
+  },
+  head() {
+    return {
+      title: `${this.naturalAdventure.name} - Natural History Safari`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.naturalAdventure.description
+        }
+      ]
     }
   }
 }

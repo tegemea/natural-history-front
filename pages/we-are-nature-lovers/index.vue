@@ -1,24 +1,26 @@
 <template>
   <div>
-    <div class="row">
+    <div class="row text-center">
       <div class="col-12 slider p-0">
         <img :src="`${baseURL}/storage/page_photos/${n.photo}`" class="img-fluid" :alt="n.name">
         <h1 class="title">{{ n.name }}</h1>
       </div>
     </div>
-    <div class="container mt-5">
-      <div class="row">
-        <div v-html="n.description" class="col-md-8 text-justify"></div>
-        <div class="col-md-4">
-          <div class="list-group list-group-flush sticky-side">
-            <div class="list-group-item list-group-heading thin-fonts brand-color">OTHER COMPANY PAGES</div>
-            <NuxtLink v-for="p in pages" 
-              :to="`/${p.slug}`" 
-              class="list-group-item list-group-item-action" 
-              :key="p.id"
-            >
-              {{ p.name }}
-            </NuxtLink>
+    <div class="row bg-white">
+      <div class="container mt-5 max-1600">
+        <div class="row">
+          <div v-html="n.description" class="col-md-8 text-justify"></div>
+          <div class="col-md-4">
+            <div class="list-group list-group-flush sticky-side">
+              <div class="list-group-item list-group-heading thin-fonts brand-color">OTHER COMPANY PAGES</div>
+              <NuxtLink v-for="p in pages" 
+                :to="`/${p.slug}`" 
+                class="list-group-item list-group-item-action" 
+                :key="p.id"
+              >
+                {{ p.name }}
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </div>
@@ -42,6 +44,18 @@ export default {
   computed: {
     baseURL() {
       return this.$store.state.settings.baseURL
+    }
+  },
+  head() {
+    return {
+      title: `We are Nature Lovers - Natural History Safari`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: ''
+        }
+      ]
     }
   }
 }

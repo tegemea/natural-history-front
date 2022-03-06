@@ -46,6 +46,7 @@ $shine-color: orange;
 .base-bg { background: $base-color; }
 .pale-brand { color: $pale-brand; }
 .pale-bg { background: $pale-brand; }
+.pale-2x-bg { background: lighten($pale-brand, 5); }
 .brand-color { color: $pale-brand; }
 .white-color { color: $white-color; }
 .shine-color { color: $shine-color; }
@@ -86,6 +87,10 @@ body {
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
+}
+
+.max-1600 {
+  max-width: 1600px;
 }
 
 .quote {
@@ -253,7 +258,8 @@ body {
 
 nav {
   position: fixed;
-  top: 0; left: 0;
+  top: 0; left: 50%;
+  transform: translate(-50%);
   display: flex;
   width: 100%;
   padding: 15px;
@@ -262,6 +268,7 @@ nav {
   height: 140px;
   z-index: 100;
   transition: all .3s ease;
+  max-width: 1600px;
 
   .logo-container {
     max-width: 300px;
@@ -461,7 +468,7 @@ nav {
     text-align: center;
     z-index: 3;
     font-family: $cursive-fonts;
-    font-size: 3.5vw;
+    font-size: 3vw;
     color: white;
     text-shadow: 0 1px 3px #000;
     padding: 15px 30px;
