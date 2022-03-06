@@ -57,9 +57,6 @@
 import { mapState, mapActions } from 'vuex'
 
 export default {
-  async asyncData() {
-    //
-  },
   computed: {
     ...mapState(['pages']),
     baseURL() { return this.$store.state.settings.baseURL },
