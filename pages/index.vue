@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="row pale-bg">
-      <div class="col-md-6 py-4 d-flex flex-column align-items-center justify-content-center">
+      <div v-if="whyTravelWithUs" class="col-md-6 py-4 d-flex flex-column align-items-center justify-content-center">
         <h3 class="thin-fonts mb-4 text-center text-uppercase">{{ whyTravelWithUs.name }}</h3>
         <div class="text-justify px-4" v-html="whyTravelWithUs.description.length > 300 ? whyTravelWithUs.description.substr(0, 300) + '...' : whyTravelWithUs.description"></div>
         
@@ -35,14 +35,25 @@
       </div>
       <div class="col-md-6 py-4 d-flex flex-column align-items-center justify-content-center">
         <h3 class="thin-fonts mb-4 text-center">WHAT TO DO WHEN IN TANZANIA</h3>
-        <p class="text-justify px-4">million wildebeest… each one driven by the same ancient rhythm, fulfilling its instinctive role in the inescapable cycle of life: a frenzied three-week bout of territorial conquests and mating; survival of the fittest as 40km (25 mile) long columns plunge through crocodile-infested waters on the annual exodus north; replenishing the species in a brief population explosion that produces more than 8,000 calves daily before the 1,000 km (600 mile) pilgrimage begins again...</p>
+        <div v-if="whatToDoWhen.whatToDoWhens.length" class="row">
+          <div v-for="w in whatToDoWhen.whatToDoWhens" class="col-lg-6 px-5" :key="w.id">
+            <NuxtLink :to="`/what-to-do-when/${w.slug}`" class="text-black-50 thin-fonts"><strong>{{ w.name }}</strong></NuxtLink> <br>
+            <div v-html="w.description.substr(0, 100) + '...'" class=""></div>
+          </div>
+        </div>
+        
         <NuxtLink to="/what-to-do-when" class="btn btn-outline-brand rounded-0 mt-3">Read More</NuxtLink>
       </div>
     </div>
     <div class="row pale-bg">
       <div class="col-md-6 py-4 d-flex flex-column align-items-center justify-content-center">
         <h3 class="thin-fonts mb-4 text-center">TANZANIA SAFARI ADVENTURES</h3>
-        <p class="text-justify px-4">million wildebeest… each one driven by the same ancient rhythm, fulfilling its instinctive role in the inescapable cycle of life: a frenzied three-week bout of territorial conquests and mating; survival of the fittest as 40km (25 mile) long columns plunge through crocodile-infested waters on the annual exodus north; replenishing the species in a brief population explosion that produces more than 8,000 calves daily before the 1,000 km (600 mile) pilgrimage begins again...</p>
+        <div v-if="naturalAdventures.naturalAdventures.length" class="row">
+          <div v-for="n in naturalAdventures.naturalAdventures.slice(0,6)" class="col-lg-4 mb-2" :key="n.id">
+            <NuxtLink :to="`/natural-adventures/${n.slug}`" class="text-black-50 thin-fonts">{{ n.name }}</NuxtLink>
+            <div v-html="n.description.substr(0, 70) + '...'"></div>
+          </div>
+        </div>
         <!-- <button class="btn btn-outline-brand rounded-0 mt-3">Read More</button> -->
         <NuxtLink to="/natural-adventures" class="btn btn-outline-brand rounded-0 mt-3">Read More</NuxtLink>
       </div>
@@ -58,17 +69,24 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
   computed: {
-    ...mapState(['pages']),
+    ...mapState(['pages','whatToDoWhen', 'naturalAdventures']),
     baseURL() { return this.$store.state.settings.baseURL },
     whyTravelWithUs() { 
       return this.pages.pages.find(p => p.slug === 'why-travel-with-us')
-    }
+    },
   },
   mounted() {
+    // FIXME: There seems to be a waiting problem, pages loads but refreshing causes error
     if(!this.pages.pages.length) this.getPages();
+    if(!this.whatToDoWhen.whatToDoWhens.length) this.getWhatToDoWhens();
+    if(!this.naturalAdventures.naturalAdventures.length) this.getNaturalAdventures();
   },
   methods: {
-    ...mapActions({ getPages: 'pages/getPages' })
+    ...mapActions({ 
+      getPages: 'pages/getPages',
+      getWhatToDoWhens: 'whatToDoWhen/getWhatToDoWhens',
+      getNaturalAdventures: 'naturalAdventures/getNaturalAdventures'
+    })
   }
 }
 </script>
