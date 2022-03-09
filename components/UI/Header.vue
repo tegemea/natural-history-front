@@ -36,6 +36,7 @@
               <!-- </transition> -->
             </li>
             <li><NuxtLink to="/why-travel-with-us">Why Travel with us</NuxtLink></li>
+            <li><NuxtLink to="/gallery">Gallery</NuxtLink></li>
             <li><NuxtLink to="#">Blog</NuxtLink></li>
             <li><NuxtLink to="/safari-bookings" class="booking mt-3">Safari Booking</NuxtLink></li>
           </ul>
