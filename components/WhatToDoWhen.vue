@@ -38,7 +38,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.whatToDoWhen.name} - Natural History Safari`,
+      title: `${this.whatToDoWhen.seo_title ? this.whatToDoWhen.seo_title : this.whatToDoWhen.name} - Natural History Safari`,
       meta: [
         {
           hid: 'description',
