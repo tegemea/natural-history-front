@@ -15,8 +15,9 @@ export const mutations = {
 }
 
 export const actions = {
-  async getPhotos({ commit, rootState }) {
-    const { data } = await this.$axios.get(`${rootState.settings.apiURL}/photos`)
-    commit('SET_PHOTOS', data);
+  async getPhotos({ rootState }) {
+    // const { data } = await 
+    // this.$axios.get(`${rootState.settings.apiURL}/photos`);
+    // commit('SET_PHOTOS', data)
   }
 }

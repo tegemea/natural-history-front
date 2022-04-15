@@ -15,8 +15,9 @@ export const mutations = {
 }
 
 export const actions = {
-  async getNaturalAdventures({ commit, rootState }) { 
-    const { data } = await this.$axios.get(`${rootState.settings.apiURL}/natural-adventures`)
-    commit('SET_NATURAL_ADVENTURES', data)
+  async getNaturalAdventures({ rootState }) { 
+    // const { data } = await 
+    // this.$axios.get(`${rootState.settings.apiURL}/natural-adventures`)
+    // commit('SET_NATURAL_ADVENTURES', data)
   }
 }

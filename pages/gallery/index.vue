@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row text-center">
-      <div class="col-12 slider p-0">
+      <div v-if="randomNaturalAdventure" class="col-12 slider p-0">
         <img :src="`${baseURL}/storage/natural_adventure_photos/${randomNaturalAdventure.photo}`" class="img-fluid" alt="Natural Adventure">
         <h1 class="text-center title">Photo Gallery</h1>
       </div>
@@ -36,23 +36,12 @@ export default {
       photos: []
     }
   },
+  created() {
+    if(this.$fetchState.timestamp > Date.now() - 30000) this.$fetch();
+  },
   async fetch() {
-    const natAdventures = this.$store.state.naturalAdventures.naturalAdventures;
-    const photos = this.$store.state.photos.photos;
-
-    if(!natAdventures.length) {
-      this.naturalAdventures = await this.$axios.$get(`${this.$store.state.settings.apiURL}/natural-adventures`);
-      if(this.naturalAdventures.length) this.$store.commit('naturalAdventures/SET_NATURAL_ADVENTURES', this.naturalAdventures)
-    } else {
-      this.naturalAdventures = this.$store.state.naturalAdventures.naturalAdventures;
-    }
-
-    if(!photos.length) {
-      this.photos = await this.$axios.$get(`${this.$store.state.settings.apiURL}/photos`);
-      if(this.photos.length) this.$store.commit('photos/SET_PHOTOS', this.photos)
-    } else {
-      this.photos = this.$store.state.photos.photos
-    }
+    this.naturalAdventures = await this.$axios.$get(`${this.$store.state.settings.apiURL}/natural-adventures`);
+    this.photos = await this.$axios.$get(`${this.$store.state.settings.apiURL}/photos`);
   },
   computed: {
     baseURL() {

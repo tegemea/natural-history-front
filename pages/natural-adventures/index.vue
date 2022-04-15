@@ -35,17 +35,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  async asyncData({ app, store }) {
-    if(!store.state.naturalAdventures.naturalAdventures.length) {
-      const { data } = await app.$axios.get(`${store.state.settings.apiURL}/natural-adventures`);
-      if(data) store.commit('naturalAdventures/SET_NATURAL_ADVENTURES', data)
-      return { naturalAdventures: data }
-    } else {
-      return { naturalAdventures: store.state.naturalAdventures.naturalAdventures }
-    }
+  created() {
+    if(this.$fetchState.timestamp > Date.now() - 30000) this.$fetch()
+  },
+  async fetch() {
+    const { data } = await this.$axios.get(`${this.apiURL}/natural-adventures`);
+    if(data.length) this.$store.commit('naturalAdventures/SET_NATURAL_ADVENTURES', data);
   },
   computed: {
+    ...mapGetters({ naturalAdventures: 'naturalAdventures/naturalAdventures', apiURL: 'settings/apiURL' }),
     baseURL() {
       return this.$store.state.settings.baseURL
     }

@@ -29,12 +29,25 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  props: ['whatToDoWhen', 'whatToDoWhens'],
   computed: {
-    baseURL() {
-      return this.$store.state.settings.baseURL
+    ...mapGetters({ 
+      whatToDoWhens: 'whatToDoWhen/whatToDoWhens',
+      baseURL: 'settings/baseURL',
+      apiURL: 'settings/apiURL' 
+    }),
+    whatToDoWhen() {
+      return this.whatToDoWhens.find(w => w.slug === this.$route.params.slug)
     }
+  },
+  created() {
+    if(this.$fetchState.timestamp > Date.now() - 30000) this.$fetch()
+  },
+  async fetch() {
+    const { data } = await this.$axios.get(`${this.apiURL}/what-to-do-when`)
+    if(data.length) this.$store.commit('whatToDoWhen/SET_WHAT_TO_DO_WHENS', data)
   },
   head() {
     return {

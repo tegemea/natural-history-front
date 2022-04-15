@@ -29,22 +29,24 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  async asyncData({ store, app }) {
-    if(!store.state.pages.length) {
-      const { data } = await app.$axios.get(`${store.state.settings.apiURL}/pages`)
-      const n = data.find(p => p.slug === 'why-travel-with-us')
-      return { n, pages:data }
-    } else {
-      const pages = store.state.pages
-      const n = pages.find(p => p.slug === 'why-travel-with-us')
-      return { n, pages }
-    }
-  },
   computed: {
-    baseURL() {
-      return this.$store.state.settings.baseURL
-    }
+    ...mapGetters({ 
+      pages: 'pages/pages',
+      baseURL: 'settings/baseURL',
+      apiURL: 'settings/apiURL' }),
+      n() {
+        return this.pages.find(p => p.name.includes('Why travel with'))
+      }
+  },
+  created() {
+    if(this.$fetchState.timestamp > Date.now() - 30000) this.$fetch()
+  },
+  async fetch() {
+    const { data } = await this.$axios.get(`${this.apiURL}/pages`)
+    if(data.length) this.$store.commit('pages/SET_PAGES', data)
   },
   head() {
     return {

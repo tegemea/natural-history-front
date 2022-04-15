@@ -29,15 +29,28 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  props: ['naturalAdventure', 'naturalAdventures'],
   computed: {
-    baseURL() {
-      return this.$store.state.settings.baseURL
+    ...mapGetters({ 
+      naturalAdventures: 'naturalAdventures/naturalAdventures', 
+      baseURL: 'settings/baseURL',
+      apiURL: 'settings/apiURL' 
+    }),
+    naturalAdventure() {
+      return this.naturalAdventures.find(n => n.slug === this.$route.params.slug)
     },
     adventuresWithoutCurrentAdenture() {
       return this.naturalAdventures.filter(a => +a.id !== +this.naturalAdventure.id)
     }
+  },
+  created() {
+    if(this.$fetchState.timestamp > Date.now() - 30000) this.$fetch()
+  },
+  async fetch() {
+    const { data } = await this.$axios.get(`${this.apiURL}/natural-adventures`)
+    if(data.length) this.$store.commit('naturalAdventures/SET_NATURAL_ADVENTURES', data)
   },
   head() {
     return {

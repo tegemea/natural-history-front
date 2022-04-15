@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row text-center">
-      <div class="col-12 slider p-0">
+      <div v-if="n" class="col-12 slider p-0">
         <img :src="`${baseURL}/storage/page_photos/${n.photo}`" class="img-fluid" :alt="n.name">
         <h1 class="title">{{ n.name }}</h1>
       </div>
@@ -29,22 +29,25 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  async asyncData({ store, app }) {
-    if(!store.state.pages.length) {
-      const { data } = await app.$axios.get(`${store.state.settings.apiURL}/pages`)
-      const n = data.find(p => p.slug === 'we-are-nature-lovers')
-      return { n, pages: data }
-    } else {
-      const pages = store.state.pages
-      const n = pages.find(p => p.slug === 'we-are-nature-lovers')
-      return { n, pages }
+  computed: {
+    ...mapGetters({ 
+      pages: 'pages/pages', 
+      apiURL: 'settings/apiURL',
+      baseURL: 'settings/baseURL'
+    }),
+    n() {
+      return this.pages.find(p => p.name.includes('We are Nature'))
     }
   },
-  computed: {
-    baseURL() {
-      return this.$store.state.settings.baseURL
-    }
+  created() {
+    if(this.$fetchState.timestamp > Date.now() - 30000) this.$fetch()
+  },
+  async fetch() {
+    const { data } = await this.$axios.get(`${this.apiURL}/pages`);
+    this.$store.commit('pages/SET_PAGES', data);
   },
   head() {
     return {
@@ -57,7 +60,7 @@ export default {
         }
       ]
     }
-  }
+  },
 }
 </script>
 

@@ -39,22 +39,22 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
-  async asyncData({ app, store }) {
-    if(!store.state.whatToDoWhen.whatToDoWhens.length) {
-      const { data } = await app.$axios.get(`${store.state.settings.apiURL}/what-to-do-when`)
-      if(data.length) store.commit('whatToDoWhen/SET_WHAT_TO_DO_WHENS', data);
-      return { whatToDoWhens: data }
-    } else {
-      return { whatToDoWhens: store.state.whatToDoWhen.whatToDoWhens }
-    }
-  },
   computed: {
-    baseURL() {
-      return this.$store.state.settings.baseURL
-    }
+    ...mapGetters({ 
+      whatToDoWhens: 'whatToDoWhen/whatToDoWhens',
+      baseURL: 'settings/baseURL',
+      apiURL: 'settings/apiURL' 
+    }),
+  },
+  created() {
+    if(this.$fetchState.timestamp > Date.now() - 30000) this.$fetch()
+  },
+  async fetch() {
+    const { data } = await this.$axios.get(`${this.apiURL}/what-to-do-when`)
+    if(data.length) this.$store.commit('whatToDoWhen/SET_WHAT_TO_DO_WHENS', data)
   },
   head() {
     return {
@@ -68,8 +68,5 @@ export default {
       ]
     }
   },
-  methods: {
-    ...mapMutations(['whatToDoWhen',['SET_WHAT_TO_DO_WHENS']])
-  }
 }
 </script>

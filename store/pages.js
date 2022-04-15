@@ -9,14 +9,16 @@ export const getters = {
 }
 
 export const mutations = {
-  set(state, pages) {
+  SET_PAGES(state, pages) {
     state.pages = pages
+    // console.log(pages.length)
   }
 }
 
 export const actions = {
-  async getPages({ commit, rootState }) {
-    const { data } = await this.$axios.get(`${rootState.settings.apiURL}/pages`)
-    commit('set', data)
+  async getPages({ rootState }) {
+    // const { data } = await 
+    // this.$axios.get(`${rootState.settings.apiURL}/pages`);
+    // commit('SET_PAGES', data)
   }
 }

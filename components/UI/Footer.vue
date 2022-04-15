@@ -4,7 +4,7 @@
       <footer class="col-12 p-0">
         <div class="container max-1600">
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-3 mb-4">
               <h4 class="thin-fonts">Quick Links</h4>
               <NuxtLink v-for="footerP in pages" 
                 :to="`/${footerP.slug}`"
@@ -14,7 +14,7 @@
                 {{ footerP.name }}
               </NuxtLink>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-3 mb-4">
               <h4 class="thin-fonts">What to do When</h4>
               <NuxtLink v-for="footerW in whatToDoWhens" 
                 :to="`/what-to-do-when/${footerW.slug}`"
@@ -24,7 +24,7 @@
                 {{ footerW.name }}
               </NuxtLink>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-3 mb-4">
               <h4 class="thin-fonts">Natural Adventures</h4>
               <NuxtLink v-for="footerN in naturalAdventures.slice(0,8)"
                 :to="`/natural-adventures/${footerN.slug}`"
@@ -34,7 +34,7 @@
                 {{ footerN.name }}
               </NuxtLink>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-3 mb-4">
               <h4 class="thin-fonts">Get in Touch</h4>
               <address>
                 <h5 class="mb-2">Natural History Safari</h5>
@@ -57,36 +57,28 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  data() {
-    return {
-      pages: [],
-      whatToDoWhens: [],
-      naturalAdventures: []
-    }
+
+  computed: {
+    ...mapGetters({
+      pages: 'pages/pages',
+      whatToDoWhens: 'whatToDoWhen/whatToDoWhens',
+      naturalAdventures: 'naturalAdventures/naturalAdventures'
+    })
+  },
+  created() {
+    if(this.$fetchState.timestamp > Date.now() - 30000) this.$fetch()
   },
   async fetch() {
-    const storeHasPages = this.$store.state.pages.pages.length > 0;
-    const storeHasWhatToDoWhens = this.$store.state.whatToDoWhen.whatToDoWhens.length > 0;
-    const storeHasNaturalAdventures = this.$store.state.naturalAdventures.naturalAdventures.length > 0;
+    const { data: pages } = await this.$axios.get(`${this.$store.state.settings.apiURL}/pages`);
+    const { data: whatToDoWhens } = await this.$axios.get(`${this.$store.state.settings.apiURL}/what-to-do-when`);
+    const { data: naturalAdventures } = await this.$axios.get(`${this.$store.state.settings.apiURL}/natural-adventures`);
 
-    if(!storeHasPages) {
-      this.pages = await this.$axios.$get(`${this.$store.state.settings.apiURL}/pages`);
-    } else {
-      this.pages = this.$store.state.pages.pages
-    }
-
-    if(!storeHasWhatToDoWhens) {
-      this.whatToDoWhens = await this.$axios.$get(`${this.$store.state.settings.apiURL}/what-to-do-when`);
-    } else {
-      this.whatToDoWhens = this.$store.state.whatToDoWhen.whatToDoWhens
-    }
-    
-    if(!storeHasNaturalAdventures) {
-      this.naturalAdventures = await this.$axios.$get(`${this.$store.state.settings.apiURL}/natural-adventures`);
-    } else {
-      this.naturalAdventures = this.$store.state.naturalAdventures.naturalAdventures
-    }
+    if(pages.length) this.$store.commit('pages/SET_PAGES', pages);
+    if(whatToDoWhens.length) this.$store.commit('whatToDoWhen/SET_WHAT_TO_DO_WHENS', whatToDoWhens);
+    if(naturalAdventures.length) this.$store.commit('naturalAdventures/SET_NATURAL_ADVENTURES', naturalAdventures);
   }
 }
 </script>
